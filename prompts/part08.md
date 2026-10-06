@@ -6,7 +6,9 @@
 
 ```
 이 폴더에 Next.js(App Router, TypeScript) + Tailwind CSS 프로젝트를 만들어줘.
-- 이미 있는 `CLAUDE.md`는 지우지 말고 유지
+- 이 폴더에는 이미 `CLAUDE.md`가 있어서 create-next-app이 충돌로 멈춘다. 하위 임시 폴더에 만든 뒤 파일을 이 폴더로 옮겨줘
+- package.json의 이름은 memo로
+- 새로 생긴 `CLAUDE.md`(@AGENTS.md 한 줄)는 기존 `CLAUDE.md` 맨 위에 합치고, 기존 내용은 그대로 둬
 - 설치 중 질문은 기본값으로
 - 끝나면 개발 서버를 실행하고 열어 볼 주소를 알려줘
 ```
