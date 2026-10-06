@@ -16,8 +16,8 @@
 | 위치 | 내용 |
 |---|---|
 | [`prompts/`](prompts/README.md) | Part별 실습 프롬프트. 복사해서 Claude Code에 붙여 넣습니다 |
-| `checkpoint/01-home-detail` 브랜치 | 홈·상세 화면 구현 완료본 (준비 중) |
-| `checkpoint/02-supabase` 브랜치 | 작성·저장까지 완료본 (준비 중) |
+| `checkpoint/01-home-detail` 브랜치 | 홈·상세 화면 구현 완료본 |
+| `checkpoint/02-supabase` 브랜치 | Supabase 연동과 작성·저장까지 완료본 |
 
 실습 프로젝트는 강의 중에 각자 새로 만듭니다. 진도가 늦어지면 체크포인트 브랜치를 받아 그 지점부터 이어 갑니다.
 
