@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* Figma 시작 시안의 변수와 같은 값. 이름은 Figma 변수의 "/"를 "-"로 바꿨다. */
+:root {
+  --color-primary: #3b62f6;
+  --surface-page: #f7f8fa;
+  --surface-card: #ffffff;
+  --text-primary: #111827;
+  --text-body: #374151;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-on-primary: #ffffff;
+  --border-default: #e5e7eb;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-34: 34px;
+  --space-64: 64px;
+}
+
+@theme {
+  --radius-md: 12px;
+
+  --text-heading-xl: 28px;
+  --text-heading-xl--line-height: 36px;
+  --text-heading-xl--font-weight: 700;
+  --text-title-md: 17px;
+  --text-title-md--line-height: 24px;
+  --text-title-md--font-weight: 700;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 26px;
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 20px;
+  --text-caption-sm: 12px;
+  --text-caption-sm--line-height: 16px;
+  --text-caption-sm--font-weight: 500;
+  --text-button-md: 16px;
+  --text-button-md--line-height: 20px;
+  --text-button-md--font-weight: 700;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-surface-page: var(--surface-page);
+  --color-surface-card: var(--surface-card);
+  --color-text-primary: var(--text-primary);
+  --color-text-body: var(--text-body);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-on-primary: var(--text-on-primary);
+  --color-border-default: var(--border-default);
+  --spacing-s4: var(--space-4);
+  --spacing-s6: var(--space-6);
+  --spacing-s12: var(--space-12);
+  --spacing-s16: var(--space-16);
+  --spacing-s20: var(--space-20);
+  --spacing-s24: var(--space-24);
+  --spacing-s34: var(--space-34);
+  --spacing-s64: var(--space-64);
+  --font-sans: var(--font-noto-sans-kr);
+}
+
+body {
+  background: var(--surface-page);
+  color: var(--text-primary);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
