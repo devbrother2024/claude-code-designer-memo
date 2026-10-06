@@ -1,6 +1,6 @@
 # Claude Code로 시작하는 디자이너를 위한 바이브코딩
 
-> 이 브랜치는 **체크포인트 01: 홈·상세 화면 구현 완료본**입니다. Part 8 시안 구현까지 끝난 상태이며, 데이터는 코드 안의 예시 메모 3개를 씁니다.
+> 이 브랜치는 **체크포인트 02: Supabase 연동과 작성 화면 완료본**입니다. Part 9까지 끝난 상태입니다. `.env.example`을 `.env.local`로 복사해 내 Supabase 값을 넣고, `supabase/migrations/`의 SQL을 Supabase SQL Editor에서 한 번 실행하면 동작합니다.
 
 디자이너가 Claude Code와 Figma MCP로 메모 앱 시안을 만들고, 코드로 구현하고, 배포까지 하는 1일 핸즈온 실습 저장소입니다.
 

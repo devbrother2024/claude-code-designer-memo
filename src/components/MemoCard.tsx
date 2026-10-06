@@ -10,7 +10,7 @@ export function MemoCard({ memo }: { memo: Memo }) {
     >
       <span className="text-title-md text-text-primary">{memo.title}</span>
       <span className="line-clamp-2 text-body-sm text-text-body">{memo.body}</span>
-      <span className="text-caption-sm text-text-muted">{formatDate(memo.createdAt)}</span>
+      <span className="text-caption-sm text-text-muted">{formatDate(memo.created_at)}</span>
     </Link>
   );
 }
