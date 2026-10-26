@@ -3,8 +3,9 @@
 ## P7-1 | 홈 화면 시안 만들기
 
 ```
-이 Figma 파일에 메모 앱 모바일 홈 화면을 새 프레임으로 만들어줘: {내 복제본 파일 링크}
+Figma 공식 스킬 figma-use와 figma-generate-design을 먼저 읽고, 그 절차대로 이 Figma 파일에 메모 앱 모바일 홈 화면을 새 프레임으로 만들어줘: {내 복제본 파일 링크}
 
+- 라이브러리는 검색하지 말고 이 파일에 있는 컴포넌트·변수·텍스트 스타일만 써줘
 - 프레임 이름 `Mobile/Home`, 390×844, 세로 오토레이아웃
 - 상단: 제목 "내 메모", 부제 "오늘 기록한 생각들"
 - 메모 카드 3개(제목, 미리보기 2줄, 날짜). 기존 `Card/Memo` 컴포넌트 인스턴스로
@@ -18,7 +19,7 @@
 
 ## P7-2 | 상세 화면 시안 만들기, 여유자용
 
-기본 진행은 시작 시안의 `Mobile/Detail` 완성 예시를 쓴다. 홈을 일찍 끝낸 사람만 입력한다.
+기본 진행은 시작 시안의 `완성 예시/Detail`을 쓴다. 홈을 일찍 끝낸 사람만 입력한다.
 
 ```
 같은 파일의 `Mobile/Home` 오른쪽에 상세 화면 `Mobile/Detail`(390×844)을 만들어줘.
@@ -32,7 +33,9 @@
 
 ```
 https://github.com/gaspanik/figma-audit-skill 저장소의 `skills/figma-audit` 폴더를
-이 폴더의 `.claude/skills/figma-audit/`에 설치해줘. 설치 후 스킬 이름과 하는 일을 한 줄로 알려줘.
+이 폴더의 `.claude/skills/figma-audit/`에 설치해줘.
+설치한 SKILL.md의 allowed-tools에 있는 `mcp__plugin_figma_figma__`는 `mcp__claude_ai_Figma__`로 바꿔줘. Figma를 커넥터로 연결했기 때문이야.
+설치 후 스킬 이름과 하는 일을 한 줄로 알려줘.
 ```
 
 ## P7-4 | 채점하기
@@ -40,7 +43,7 @@ https://github.com/gaspanik/figma-audit-skill 저장소의 `skills/figma-audit` 
 ```
 figma-audit 스킬로 아래 두 프레임을 각각 검수해서 점수와 지적 항목을 보여줘.
 - 홈: {Mobile/Home 프레임 링크}
-- 상세: {Mobile/Detail 프레임 링크}
+- 상세: {Mobile/Detail 프레임 링크, 직접 안 만들었으면 완성 예시/Detail}
 ```
 
 ## P7-5 | 고치고 다시 채점

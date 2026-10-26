@@ -11,9 +11,9 @@
 ```
 
 ```
-team-design-check 스킬로 내 상세 화면을 채점해줘: {Mobile/Detail 프레임 링크}
+team-design-check 스킬로 내 상세 화면을 채점해줘: {상세 프레임 링크}
 ```
 
 ## P11-2 | 강의장 PC 정리
 
-프롬프트 없이 화면의 체크리스트를 함께 진행한다: Claude 앱 로그아웃, 브라우저에서 Figma·GitHub·Vercel·Supabase 로그아웃, Claude Code의 Figma·Supabase 연결 해제.
+프롬프트 없이 화면의 체크리스트를 함께 진행한다: Claude 앱 로그아웃, 브라우저에서 Figma·GitHub·Vercel·Supabase 로그아웃, Claude 설정 → 커넥터에서 Figma 연결 끊기, Claude Code의 Supabase MCP 연결 해제. 교육용 Figma 계정은 다음 회차에 다른 분이 쓰므로 커넥터 연결을 꼭 끊는다.
