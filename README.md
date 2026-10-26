@@ -22,11 +22,25 @@
 
 ## 준비할 계정
 
-- Claude Pro 이상 구독
-- Figma (교육용 계정, Full seat)
-- GitHub
-- Vercel
-- Supabase
+- [Claude](https://claude.ai) Pro 이상 구독
+- [Figma](https://www.figma.com/signup) (Full seat)
+- [GitHub](https://github.com/signup)
+- [Vercel](https://vercel.com/signup) (GitHub 계정으로 가입하면 빠름)
+- [Supabase](https://supabase.com/dashboard/sign-up) (GitHub 계정으로 가입하면 빠름)
+
+## 설치할 프로그램 (Windows)
+
+| 프로그램 | 받는 곳 | 설치·확인 |
+|---|---|---|
+| Claude 데스크톱 앱 (Code 탭) | [claude.com/download](https://claude.com/download) | 설치 후 개인 계정으로 로그인 |
+| Figma 데스크톱 앱 | [figma.com/downloads](https://www.figma.com/downloads/) | 브라우저 figma.com으로도 가능 |
+| Node.js LTS | [nodejs.org](https://nodejs.org/en/download) | `node -v` (v20 이상) |
+| Bun | [bun.sh](https://bun.sh) | PowerShell: `irm bun.sh/install.ps1 \| iex`, 확인 `bun -v` |
+| Git for Windows | [git-scm.com](https://git-scm.com/downloads/win) | `git --version` (Code 탭에 필요) |
+| GitHub CLI | [cli.github.com](https://cli.github.com) | `winget install --id GitHub.cli`, `gh auth login`, 확인 `gh auth status` |
+| VS Code (선택) | [code.visualstudio.com](https://code.visualstudio.com/download) | 코드를 직접 열어 볼 때 |
+
+설치 뒤에는 PowerShell을 완전히 닫았다가 다시 열어야 새 명령이 잡힙니다.
 
 ## 체크포인트 받기
 
