@@ -9,6 +9,6 @@
 ## P1-2 | 설치 확인
 
 ```
-Node.js와 Git이 설치돼 있는지 버전을 확인해줘.
+Node.js, Bun, Git, GitHub CLI가 설치돼 있는지 버전을 확인하고, GitHub CLI는 로그인 상태(gh auth status)도 확인해줘.
 설치가 안 된 게 있으면 Windows에서 설치하는 방법을 단계별로 알려줘.
 ```
