@@ -1,0 +1,9 @@
+{
+  "name": "메모 앱 시작 시안 생성",
+  "id": "devbrothers-memo-starter",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": { "allowedDomains": ["none"] }
+}
