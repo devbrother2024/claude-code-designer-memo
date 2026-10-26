@@ -6,10 +6,10 @@
 
 | 종류 | 내용 |
 |---|---|
-| 변수 | `Colors`(색 9개), `Spacing`(간격 8개, 모서리 1개) |
+| 변수 | `Colors`(색 9개), `Spacing`(간격 8개, 모서리 1개). 코드 이름은 `var(--text-primary)`처럼 CSS 변수와 같음 |
 | 텍스트 스타일 | heading/xl, title/md, body/md, body/sm, caption/sm, button/md (Noto Sans KR) |
 | 컴포넌트 | `Button/Primary`(label 속성), `Card/Memo`(title, preview, date 속성) |
-| 완성 예시 | `Mobile/Home`, `Mobile/Detail` (390×844) |
+| 완성 예시 | `완성 예시/Home`, `완성 예시/Detail` (390×844). P7-1이 만드는 `Mobile/Home`과 이름이 겹치지 않게 함 |
 | 연습 프레임 | `연습/규칙 위반`: 오토레이아웃 없음, 간격용 빈 상자, 값으로 넣은 색, 따로 그린 버튼, 자동 이름 |
 
 디자인 토큰 값은 체크포인트 브랜치의 `src/app/globals.css`와 같습니다.
@@ -30,6 +30,6 @@
 
 ## 확인할 것
 
-- 실행 후 `Mobile/Home`의 한글이 보이는지 (Noto Sans KR 필요)
+- 실행 후 `완성 예시/Home`의 한글이 보이는지 (Noto Sans KR 필요)
 - `Card/Memo` 미리보기가 2줄에서 말줄임 되는지
 - 완성 예시 화면을 Part 7 검수 스킬로 채점했을 때 점수가 높게 나오는지, `연습/규칙 위반`은 낮게 나오는지

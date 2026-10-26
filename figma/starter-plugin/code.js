@@ -43,7 +43,7 @@ const TEXT = {
 
 const MEMOS = [
   { title: "장보기 목록", preview: "우유, 계란, 사과, 커피 원두. 주말 전에 꼭 사 두기", date: "10월 30일" },
-  { title: "회의 메모", preview: "시안 검수 기준을 팀 규칙으로 정리하고 다음 주에 공유하기로 함", date: "10월 29일" },
+  { title: "회의 메모", preview: "시안 검수 기준을 팀 규칙으로 정리하기\n다음 주 회의에서 공유하기로 함", date: "10월 29일" },
   { title: "읽을 책", preview: "디자인 시스템 관련 책 두 권, 출퇴근길에 한 챕터씩 읽기", date: "10월 28일" },
 ];
 
@@ -71,14 +71,18 @@ async function buildStarter() {
     const v = figma.variables.createVariable(name, colorCol, "COLOR");
     v.setValueForMode(colorMode, { ...rgb(hex), a: 1 });
     v.scopes = name.startsWith("text/") ? ["TEXT_FILL"] : name.startsWith("border/") ? ["STROKE_COLOR"] : ["ALL_FILLS", "STROKE_COLOR"];
+    // 코드 이름은 체크포인트 globals.css의 CSS 변수와 같다("/"를 "-"로)
+    v.setVariableCodeSyntax("WEB", `var(--${name.replace("/", "-")})`);
     V[name] = v;
   }
   const spaceCol = figma.variables.createVariableCollection("Spacing");
   const spaceMode = spaceCol.modes[0].modeId;
+  spaceCol.renameMode(spaceMode, "Value");
   for (const [name, value] of Object.entries(SPACE)) {
     const v = figma.variables.createVariable(name, spaceCol, "FLOAT");
     v.setValueForMode(spaceMode, value);
     v.scopes = name.startsWith("radius/") ? ["CORNER_RADIUS"] : ["GAP"];
+    v.setVariableCodeSyntax("WEB", `var(--${name.replace("/", "-")})`);
     V[name] = v;
   }
 
@@ -130,6 +134,13 @@ async function buildStarter() {
     return n;
   };
 
+  // 줄바꿈되는 글은 HEIGHT로 바꾼 뒤 부모 폭을 채운다(기본값 WIDTH_AND_HEIGHT면 폭이 무너진다)
+  /** @param {TextNode} n */
+  const wrapFill = (n) => {
+    n.textAutoResize = "HEIGHT";
+    n.layoutSizingHorizontal = "FILL";
+  };
+
   /**
    * @param {FrameNode | ComponentNode} node
    * @param {"VERTICAL" | "HORIZONTAL"} dir
@@ -167,13 +178,14 @@ async function buildStarter() {
   card.fills = [fill("surface/card")];
   card.strokes = [fill("border/default")];
   card.strokeWeight = 1;
+  card.strokesIncludedInLayout = false;
   bindSpace(card, { top: "space/16", bottom: "space/16", left: "space/16", right: "space/16", gap: "space/6", radius: "radius/md" });
   const cTitle = await text("Title", MEMOS[0].title, "title/md", "text/primary");
   const cPreview = await text("Preview", MEMOS[0].preview, "body/sm", "text/body");
   const cDate = await text("Date", MEMOS[0].date, "caption/sm", "text/muted");
   for (const n of [cTitle, cPreview, cDate]) {
     card.appendChild(n);
-    n.layoutSizingHorizontal = "FILL";
+    wrapFill(n);
   }
   cPreview.textTruncation = "ENDING";
   cPreview.maxLines = 2;
@@ -210,7 +222,7 @@ async function buildStarter() {
   };
 
   // ---------------------------------------------------------------- 홈 완성 예시
-  const home = screen("Mobile/Home", 0);
+  const home = screen("완성 예시/Home", 0);
   const header = group("Header", "space/4");
   header.appendChild(await text("Title", "내 메모", "heading/xl", "text/primary"));
   header.appendChild(await text("Subtitle", "오늘 기록한 생각들", "body/sm", "text/secondary"));
@@ -233,7 +245,7 @@ async function buildStarter() {
   newBtn.layoutSizingHorizontal = "FILL";
 
   // ---------------------------------------------------------------- 상세 완성 예시
-  const detail = screen("Mobile/Detail", 440);
+  const detail = screen("완성 예시/Detail", 440);
   const nav = group("NavBar", "space/4");
   nav.appendChild(await text("BackLink", "‹ 목록", "body/md", "text/primary"));
   detail.appendChild(nav);
@@ -249,10 +261,13 @@ async function buildStarter() {
   divider.fills = [fill("border/default")];
   detail.appendChild(divider);
   divider.layoutSizingHorizontal = "FILL";
-  const body = await text("Body", MEMOS[1].preview + ".\n\n다음 회의 전까지 각자 맡은 화면을 검수 스킬로 한 번씩 채점해 오기.", "body/md", "text/body");
-  detail.appendChild(body);
-  body.layoutSizingHorizontal = "FILL";
-  body.layoutSizingVertical = "FILL";
+  const bodyWrap = group("Content/Body", "space/12");
+  detail.appendChild(bodyWrap);
+  bodyWrap.layoutSizingHorizontal = "FILL";
+  bodyWrap.layoutSizingVertical = "FILL";
+  const body = await text("Body", MEMOS[1].preview + "\n\n각자 맡은 화면은 검수 스킬로 채점해 오기", "body/md", "text/body");
+  bodyWrap.appendChild(body);
+  wrapFill(body);
   const editBtn = button.createInstance();
   editBtn.name = "Button/Edit";
   editBtn.setProperties({ [labelKey]: "수정하기" });
