@@ -29,26 +29,29 @@ Figma 공식 스킬 figma-use와 figma-generate-design을 먼저 읽고, 그 절
 - 홈과 같은 변수, 텍스트 스타일, 폰트 사용
 ```
 
-## P7-3 | 검수 스킬 설치
+## P7-3 | 채점 스킬 설치
 
 ```
-https://github.com/gaspanik/figma-audit-skill 저장소의 `skills/figma-audit` 폴더를
-이 폴더의 `.claude/skills/figma-audit/`에 설치해줘.
-설치한 SKILL.md의 allowed-tools에 있는 `mcp__plugin_figma_figma__`는 `mcp__claude_ai_Figma__`로 바꿔줘. Figma를 커넥터로 연결했기 때문이야.
+https://github.com/devbrother2024/claude-code-designer-memo 저장소의 `skills/design-check` 폴더를
+이 폴더의 `.claude/skills/design-check/`에 설치해줘.
 설치 후 스킬 이름과 하는 일을 한 줄로 알려줘.
 ```
+
+설치한 뒤에는 새 대화를 열고(폴더가 memo인지 확인) P7-4를 입력한다. 설치한 대화에서는 스킬 목록이 아직 바뀌지 않는다.
 
 ## P7-4 | 채점하기
 
 ```
-figma-audit 스킬로 아래 두 프레임을 각각 검수해서 점수와 지적 항목을 보여줘.
+design-check 스킬로 아래 두 프레임을 각각 채점해서 점수와 깎인 이유를 보여줘.
 - 홈: {Mobile/Home 프레임 링크}
 - 상세: {Mobile/Detail 프레임 링크, 직접 안 만들었으면 완성 예시/Detail}
 ```
 
-## P7-5 | 고치고 다시 채점
+## P7-5 | 깎인 곳 고치고 다시 채점
+
+깎인 곳이 없으면 건너뛴다.
 
 ```
 지적된 항목을 고쳐줘. 디자인 토큰에 없는 값은 새 변수를 만들어 연결하고, 컴포넌트 이름은 영문으로 바꿔줘.
-다 고치면 figma-audit 스킬로 두 프레임을 다시 검수해서 점수가 어떻게 바뀌었는지 표로 보여줘.
+다 고치면 design-check 스킬로 두 프레임을 다시 채점해서 점수가 어떻게 바뀌었는지 표로 보여줘.
 ```
