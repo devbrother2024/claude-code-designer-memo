@@ -2,7 +2,7 @@
 
 ## P8-1 | Next.js 프로젝트 만들기
 
-**폴더**: Part 6에서 연 작업 폴더(`CLAUDE.md`가 있는 곳).
+**폴더**: 오늘 계속 쓰는 바탕화면의 `memo` 폴더(`CLAUDE.md`가 있는 곳). 오전에 만든 `mini`, `compare` 폴더가 있어도 된다.
 
 ```
 이 폴더에 Next.js(App Router, TypeScript) + Tailwind CSS 프로젝트를 만들어줘.
