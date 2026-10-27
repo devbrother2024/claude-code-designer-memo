@@ -7,13 +7,14 @@
 - Figma 메모 앱 시안 (홈, 상세)
 - 메모 앱 웹 서비스 (홈 목록, 상세, 작성) + Supabase 데이터 저장
 - Vercel 배포 URL
-- 우리 팀 디자인 규칙 검수 스킬
+- 우리 팀 기준을 더한 채점 스킬
 
 ## 저장소 구성
 
 | 위치 | 내용 |
 |---|---|
 | [`prompts/`](prompts/README.md) | Part별 실습 프롬프트. 복사해서 Claude Code에 붙여 넣습니다 |
+| [`skills/`](skills/README.md) | 시안 채점 스킬 design-check. Part 7에서 설치하고 Part 11에서 우리 팀 기준으로 고칩니다 |
 | `checkpoint/01-home-detail` 브랜치 | 홈·상세 화면 구현 완료본 |
 | `checkpoint/02-supabase` 브랜치 | Supabase 연동과 작성·저장까지 완료본 |
 | [`figma/starter-plugin/`](figma/starter-plugin/README.md) | 강사용: 실습 시작 시안을 만드는 Figma 플러그인 |
@@ -54,7 +55,7 @@ npm install
 npm run dev
 ```
 
-이어서 할 때는 Code 탭에서 `memo-01` 폴더를 엽니다. 체크포인트에는 `.claude`(권한 규칙, 검수 스킬)가 들어 있어 따로 옮길 것이 없습니다.
+이어서 할 때는 Code 탭에서 `memo-01` 폴더를 엽니다. 체크포인트에는 `.claude`(권한 규칙, 채점 스킬)가 들어 있어 따로 옮길 것이 없습니다.
 
 `checkpoint/02-supabase`도 같은 방법으로 `memo-02`로 받습니다. 이 체크포인트는 `.env.local`에 내 Supabase 프로젝트 URL과 공개 키를 직접 넣어야 동작합니다.
 
