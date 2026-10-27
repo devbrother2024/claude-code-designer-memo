@@ -1,6 +1,7 @@
 // @ts-check
 // 메모 앱 시작 시안 생성 플러그인
-// 현재 Figma 파일에 변수, 텍스트 스타일, 컴포넌트, 완성 예시 화면, 규칙 위반 연습 프레임을 만든다.
+// 현재 Figma 파일에 변수, 텍스트 스타일, 컴포넌트, 완성 예시 화면, 규칙 위반 연습 프레임,
+// 구현 비교용 홈(겉모습은 완성 예시와 같고 구조만 다른 선택 실습 시안)을 만든다.
 // 디자인 토큰 값은 체크포인트 코드의 src/app/globals.css와 같다.
 
 const FONT = "Noto Sans KR";
@@ -323,6 +324,73 @@ async function buildStarter() {
   bad.appendChild(fakeBtn);
   rawText("Text", "새 메모", 16, "#FFFFFF", 165, 776);
 
+  // ---------------------------------------------------------------- 구현 비교용 홈 (선택 실습 P5-2)
+  // 완성 예시/Home과 픽셀이 같지만 구조는 일부러 나쁘다: 좌표 배치, 사각형+글자 그룹, 값으로 넣은 색,
+  // 텍스트 스타일 없음, 간격용 빈 상자, 글자 길이에 맞춘 글상자, 자동 이름.
+  const note = figma.createText();
+  note.fontName = { family: FONT, style: "Bold" };
+  note.characters = "선택 실습 (P5-2): 완성 예시/Home과 겉모습은 같고 구조만 다른 시안";
+  note.fontSize = 14;
+  note.fills = [{ type: "SOLID", color: rgb("#6B7280") }];
+  page.appendChild(note);
+  note.x = 1760;
+  note.y = -80;
+  note.name = "안내/선택 실습";
+  const compare = figma.createFrame();
+  compare.name = "홈_최종_v2";
+  compare.resize(390, 844);
+  compare.x = 1760;
+  compare.y = 0;
+  compare.fills = [{ type: "SOLID", color: rgb("#F7F8FA") }];
+  page.appendChild(compare);
+  /** @param {string} chars @param {string} style @param {number} size @param {number} line @param {string} hex @param {number} x @param {number} y */
+  const plain = (chars, style, size, line, hex, x, y) => {
+    const n = figma.createText();
+    n.fontName = { family: FONT, style };
+    n.characters = chars;
+    n.fontSize = size;
+    n.lineHeight = { unit: "PIXELS", value: line };
+    n.fills = [{ type: "SOLID", color: rgb(hex) }];
+    compare.appendChild(n);
+    n.x = x;
+    n.y = y;
+    return n;
+  };
+  /** @param {string} name @param {number} x @param {number} y @param {number} w @param {number} h @param {string | null} fill @param {string | null} stroke */
+  const box = (name, x, y, w, h, fill, stroke) => {
+    const r = figma.createRectangle();
+    r.name = name;
+    r.resize(w, h);
+    r.x = x;
+    r.y = y;
+    r.cornerRadius = fill ? 12 : 0;
+    r.fills = fill ? [{ type: "SOLID", color: rgb(fill) }] : [];
+    if (stroke) {
+      r.strokes = [{ type: "SOLID", color: rgb(stroke) }];
+      r.strokeWeight = 1;
+      r.strokeAlign = "INSIDE";
+    }
+    compare.appendChild(r);
+    return r;
+  };
+  plain("내 메모", "Bold", 28, 36, "#111827", 20, 64);
+  plain("오늘 기록한 생각들", "Regular", 14, 20, "#6B7280", 20, 104);
+  box("Rectangle 3", 20, 124, 350, 16, null, null);
+  let cardY = 140;
+  MEMOS.forEach((m, i) => {
+    const previewLines = m.preview.split("\n").length;
+    const h = previewLines > 1 ? 124 : 104;
+    const parts = [
+      box(`Rectangle ${12 + i}`, 20, cardY, 350, h, "#FFFFFF", "#E5E7EB"),
+      plain(m.title, "Bold", 17, 24, "#111827", 36, cardY + 16),
+      plain(m.preview, "Regular", 14, 20, "#374151", 36, cardY + 46),
+      plain(m.date, "Medium", 12, 16, "#9CA3AF", 36, cardY + 46 + 20 * previewLines + 6),
+    ];
+    figma.group(parts, compare).name = `Group ${5 + i}`;
+    cardY += h + 12;
+  });
+  figma.group([box("Rectangle 21", 20, 766, 350, 44, "#3B62F6", null), plain("새 메모", "Bold", 16, 20, "#FFFFFF", 171, 778)], compare).name = "Group 7";
+
   // ---------------------------------------------------------------- 컴포넌트 배치
   button.x = 1320;
   button.y = 0;
@@ -331,11 +399,11 @@ async function buildStarter() {
   page.appendChild(button);
   page.appendChild(card);
 
-  figma.viewport.scrollAndZoomIntoView([home, detail, bad, button, card]);
+  figma.viewport.scrollAndZoomIntoView([home, detail, bad, button, card, compare]);
   return {
     variables: Object.keys(V).length,
     textStyles: Object.keys(T).length,
-    frames: [home.name, detail.name, bad.name],
+    frames: [home.name, detail.name, bad.name, compare.name],
     components: [button.name, card.name],
   };
 }
