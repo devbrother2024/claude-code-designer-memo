@@ -1,19 +1,22 @@
 # Part 11. 커스텀 스킬 제작과 마무리
 
-## P11-1 | 우리 팀 디자인 규칙 검수 스킬 만들기
+## P11-1 | 채점 스킬을 우리 팀 기준으로 고치기
 
 ```
-`.claude/skills/figma-audit/`를 참고해서, 우리 팀 규칙으로 Figma 시안을 채점하는 스킬을 `.claude/skills/team-design-check/`에 만들어줘.
+`.claude/skills/design-check/SKILL.md`의 "4. 우리 팀 기준"에 아래 두 줄을 더해줘. 줄 끝에 감점할 항목(A~D)도 정해줘.
 
-- 기준: `CLAUDE.md`의 디자인 토큰과 디자인 규칙, 레이어 이름 규칙, 컴포넌트 재사용
-- 결과: 항목별 통과/개선 필요와 고칠 방법
-- 너무 길지 않게, 스킬 설명은 한 줄로
+- 화살표 같은 아이콘은 글자로 쓰지 않고 아이콘 컴포넌트로 만든다
+- 직접 만든 컴포넌트에는 설명을 적는다
+
+고친 부분만 보여줘.
 ```
 
 ```
-team-design-check 스킬로 내 상세 화면을 채점해줘: {Mobile/Detail 프레임 링크}
+design-check 스킬로 내 상세 화면을 다시 채점해줘. 우리 팀 기준에 걸린 곳은 따로 알려줘: {상세 프레임 링크}
 ```
+
+우리 팀 규칙이 있으면 첫 요청의 목록에 한 줄 더 적는다. 배점이나 결과 모양을 바꾸는 방법은 실습 저장소 `skills/README.md`에 있다.
 
 ## P11-2 | 강의장 PC 정리
 
-프롬프트 없이 화면의 체크리스트를 함께 진행한다: Claude 앱 로그아웃, 브라우저에서 Figma·GitHub·Vercel·Supabase 로그아웃, Claude Code의 Figma·Supabase 연결 해제.
+프롬프트 없이 화면의 체크리스트를 함께 진행한다: Claude 앱 로그아웃, 브라우저에서 Figma·GitHub·Vercel·Supabase 로그아웃, Claude 설정 → 커넥터에서 Figma·Supabase 연결 끊기, PowerShell에서 `gh auth logout`(GitHub CLI 로그인 지우기). 교육용 Figma 계정은 다음 회차에 다른 분이 쓰므로 커넥터 연결을 꼭 끊는다.
