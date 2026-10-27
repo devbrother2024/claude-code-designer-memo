@@ -1,12 +1,16 @@
 @import "tailwindcss";
 
 /*
- * 디자인 토큰 (Figma memo). 정본은 CLAUDE.md의 토큰 표.
- * 이름 규칙: 토큰 이름의 `/`를 `-`로 바꾼다. 예) surface/page -> --color-surface-page -> bg-surface-page
- * 코드에서는 이 변수 이름만 쓰고 값을 직접 쓰지 않는다. 값을 바꿀 때는 CLAUDE.md 표와 함께 고친다.
+ * 디자인 토큰 (Figma memo 변수). 이름은 Figma 변수 이름에서 "/"만 "-"로 바꾼 것이다.
+ * 코드에서는 이 이름의 유틸리티만 쓰고 hex·px 값을 직접 쓰지 않는다. 값은 이 파일에서만 정의한다.
+ * Tailwind 기본 색·크기·모서리는 비워서 토큰에 없는 값은 컴파일되지 않게 한다.
  */
 @theme static {
-  /* 색 (Light). Dark 값은 아래 prefers-color-scheme 블록에서 같은 변수를 덮어쓴다 */
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+
+  /* 색 (Colors) : Light 값. Dark 값은 아래 prefers-color-scheme 블록에서 덮어쓴다. */
   --color-primary: #3182f6;
   --color-surface-page: #f2f4f6;
   --color-surface-card: #ffffff;
@@ -24,7 +28,7 @@
   --color-label-pink: #e5397a;
   --color-label-pink-soft: #ffeaf1;
 
-  /* 간격: p-space-16, gap-space-8, m-space-24 처럼 쓴다 */
+  /* 간격 (space/N) : p-space-16, gap-space-8 처럼 쓴다. */
   --spacing-space-4: 4px;
   --spacing-space-8: 8px;
   --spacing-space-12: 12px;
@@ -35,17 +39,14 @@
   --spacing-space-48: 48px;
   --spacing-space-64: 64px;
 
-  /* 모서리: rounded-sm, rounded-md, rounded-lg, rounded-xl, rounded-full */
+  /* 모서리 (radius/*) : rounded-sm, rounded-full 처럼 쓴다. */
   --radius-sm: 12px;
   --radius-md: 16px;
   --radius-lg: 20px;
   --radius-xl: 24px;
   --radius-full: 999px;
 
-  /* 글꼴. --font-noto-sans-kr는 layout.tsx의 next/font가 만든다 */
-  --font-sans: var(--font-noto-sans-kr), sans-serif;
-
-  /* 텍스트 스타일: text-heading-xl 처럼 쓰면 크기/행간/자간/굵기가 함께 적용된다 */
+  /* 텍스트 스타일 : text-heading-xl 한 개로 크기·행간·자간·굵기가 함께 적용된다. */
   --text-heading-xl: 28px;
   --text-heading-xl--line-height: 38px;
   --text-heading-xl--letter-spacing: -0.8px;
@@ -54,10 +55,22 @@
   --text-heading-lg--line-height: 36px;
   --text-heading-lg--letter-spacing: -0.8px;
   --text-heading-lg--font-weight: 700;
+  --text-title-lg: 20px;
+  --text-title-lg--line-height: 28px;
+  --text-title-lg--letter-spacing: -0.4px;
+  --text-title-lg--font-weight: 700;
   --text-title-md: 17px;
   --text-title-md--line-height: 24px;
   --text-title-md--letter-spacing: -0.3px;
   --text-title-md--font-weight: 700;
+  --text-label-md: 15px;
+  --text-label-md--line-height: 22px;
+  --text-label-md--letter-spacing: -0.2px;
+  --text-label-md--font-weight: 700;
+  --text-button-md: 17px;
+  --text-button-md--line-height: 24px;
+  --text-button-md--letter-spacing: -0.2px;
+  --text-button-md--font-weight: 700;
   --text-body-md: 16px;
   --text-body-md--line-height: 28px;
   --text-body-md--letter-spacing: -0.2px;
@@ -72,14 +85,16 @@
   --text-caption-md--font-weight: 500;
   --text-caption-sm: 13px;
   --text-caption-sm--line-height: 18px;
-  --text-caption-sm--letter-spacing: 0;
+  --text-caption-sm--letter-spacing: 0px;
   --text-caption-sm--font-weight: 500;
-  --text-button-md: 17px;
-  --text-button-md--line-height: 24px;
-  --text-button-md--letter-spacing: -0.2px;
-  --text-button-md--font-weight: 700;
 }
 
+/* Noto Sans KR : layout.tsx의 next/font가 --font-noto-sans-kr 변수를 만든다. */
+@theme inline {
+  --font-sans: var(--font-noto-sans-kr), sans-serif;
+}
+
+/* 색 (Colors) : Dark 값 */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-primary: #4d94ff;
@@ -104,7 +119,7 @@
 body {
   background: var(--color-surface-page);
   color: var(--color-text-primary);
-  font-family: var(--font-sans);
-  /* 한글은 단어 중간에서 줄을 바꾸지 않는다 */
+  /* 한글은 단어 중간에서 줄을 바꾸지 않는다. */
   word-break: keep-all;
+  overflow-wrap: break-word;
 }

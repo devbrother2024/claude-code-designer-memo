@@ -9,13 +9,13 @@ const notoSansKr = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   title: "메모",
-  description: "오늘의 메모를 남기고 모아 보는 메모 앱",
+  description: "메모 앱",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko" className={`${notoSansKr.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
 }
