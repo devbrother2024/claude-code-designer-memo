@@ -54,7 +54,7 @@ npm install
 npm run dev
 ```
 
-이어서 할 때는 Code 탭에서 `memo-01` 폴더를 열고, `memo` 폴더의 `.claude` 폴더를 복사해 옵니다. 체크포인트에는 `.claude`(권한 규칙, 검수 스킬)가 없습니다.
+이어서 할 때는 Code 탭에서 `memo-01` 폴더를 엽니다. 체크포인트에는 `.claude`(권한 규칙, 검수 스킬)가 들어 있어 따로 옮길 것이 없습니다.
 
 `checkpoint/02-supabase`도 같은 방법으로 `memo-02`로 받습니다. 이 체크포인트는 `.env.local`에 내 Supabase 프로젝트 URL과 공개 키를 직접 넣어야 동작합니다.
 
