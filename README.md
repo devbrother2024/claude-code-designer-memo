@@ -18,7 +18,7 @@
 | `checkpoint/02-supabase` 브랜치 | Supabase 연동과 작성·저장까지 완료본 |
 | [`figma/starter-plugin/`](figma/starter-plugin/README.md) | 강사용: 실습 시작 시안을 만드는 Figma 플러그인 |
 
-실습 프로젝트는 강의 중에 각자 새로 만듭니다. 진도가 늦어지면 체크포인트 브랜치를 받아 그 지점부터 이어 갑니다.
+실습은 바탕화면의 `memo` 폴더 하나에서 처음부터 끝까지 진행합니다. 바탕화면에 `memo` 폴더를 만들고, Claude 데스크톱 앱 Code 탭 입력창 아래 **선택...**에서 이 폴더를 고릅니다. 새 대화를 열 때마다 폴더가 `memo`인지 확인합니다. 진도가 늦어지면 체크포인트 브랜치를 받아 그 지점부터 이어 갑니다.
 
 ## 준비할 계정
 
@@ -44,14 +44,19 @@
 
 ## 체크포인트 받기
 
-```bash
-git clone -b checkpoint/01-home-detail https://github.com/devbrother2024/claude-code-designer-memo.git memo
-cd memo
+PowerShell에서 바탕화면에 받습니다. 내 작업 폴더(`memo`)와 겹치지 않게 이름을 `memo-01`로 합니다.
+
+```powershell
+cd ~\Desktop
+git clone -b checkpoint/01-home-detail https://github.com/devbrother2024/claude-code-designer-memo.git memo-01
+cd memo-01
 npm install
 npm run dev
 ```
 
-`checkpoint/02-supabase`는 `.env.local`에 내 Supabase 프로젝트 URL과 공개 키를 직접 넣어야 동작합니다.
+이어서 할 때는 Code 탭에서 `memo-01` 폴더를 엽니다. 체크포인트에는 `.claude`(권한 규칙, 검수 스킬)가 들어 있어 따로 옮길 것이 없습니다.
+
+`checkpoint/02-supabase`도 같은 방법으로 `memo-02`로 받습니다. 이 체크포인트는 `.env.local`에 내 Supabase 프로젝트 URL과 공개 키를 직접 넣어야 동작합니다.
 
 ## 주의
 
