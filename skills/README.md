@@ -4,7 +4,7 @@
 
 Figma 프레임이 AI가 그대로 구현할 수 있는 구조인지 20점 만점으로 채점하는 스킬입니다. 레이어 이름, 오토레이아웃, 변수와 스타일, 컴포넌트 네 항목을 5점씩 보고, 걸린 곳과 Figma에서 고치는 법을 알려 줍니다.
 
-- 출처: [gaspanik/figma-audit-skill](https://github.com/gaspanik/figma-audit-skill)의 figma-audit(MIT License)을 바탕으로 디자이너 실습에 맞게 고쳤습니다. 한국어로 옮기고, 감점 기준을 한 줄씩 적어 고치기 쉽게 했고, 한글 글꼴과 따로 그린 버튼 같은 실습 내용을 기준에 넣었습니다. Figma 도구 이름은 Claude 데스크톱 앱의 Figma 커넥터 이름으로 맞췄습니다.
+- 특징: 감점 기준을 한 줄씩 적어 고치기 쉽게 했고, 한글 글꼴과 따로 그린 버튼 같은 실습 내용을 기준에 넣었습니다. Figma 도구 이름은 Claude 데스크톱 앱의 Figma 커넥터 이름에 맞췄습니다.
 - 설치: Part 7 실습(P7-3)에서 Claude가 이 폴더를 내 작업 폴더의 `.claude/skills/design-check/`로 옮깁니다.
 - 쓰는 법: `design-check 스킬로 이 프레임을 채점해줘: {프레임 링크}`
 

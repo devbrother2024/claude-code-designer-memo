@@ -86,7 +86,3 @@ Figma 커넥터가 세션을 요구하면 `create_session`부터 부른다. 그�
 - 링크에서 `fileKey`나 `nodeId`를 찾지 못하면: 프레임을 선택한 채 복사한 링크를 달라고 한다
 - 도구가 오류를 내면: 오류를 그대로 알리고, 이 파일을 열 수 있는 계정으로 Figma 커넥터가 연결됐는지 확인하게 한다
 - 프레임이 아니라 컴포넌트 링크면: 그 사실을 알리고 그 컴포넌트가 쓰인 프레임 링크를 달라고 한다
-
-## 출처
-
-[gaspanik/figma-audit-skill](https://github.com/gaspanik/figma-audit-skill)의 figma-audit(MIT License, Copyright (c) 2026 Masaaki Komori)을 바탕으로 개발동생이 디자이너 실습에 맞게 고쳤다. 라이선스 전문은 같은 폴더의 `LICENSE`에 있다.
