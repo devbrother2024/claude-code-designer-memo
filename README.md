@@ -4,9 +4,9 @@
 
 ## 오늘 만드는 것
 
-- Figma 메모 앱 시안 (홈, 상세, 작성)
-- 메모 앱 웹 서비스 (홈 목록, 상세, 작성) + Supabase 데이터 저장
-- 과제로 더하는 기능 (수정·삭제·고정, 검색·분류·정렬, 색 라벨·다크 모드)
+- Figma 메모 앱 시안 (홈, 전체 메모, 상세, 작성)
+- 메모 앱 웹 서비스 (분류 칩·고정한 메모가 있는 홈, 서식 있는 상세, 서식 막대가 있는 작성) + Supabase 데이터 저장
+- 과제로 더하는 기능 (편집: 수정·삭제·고정 / 찾기: 전체 메모·검색·분류·정렬 / 꾸미기: 서식·다크 모드)
 - Vercel 배포 URL
 - 우리 팀 기준을 더한 채점 스킬
 
@@ -16,8 +16,8 @@
 |---|---|
 | [`prompts/`](prompts/README.md) | Part별 실습 프롬프트. 복사해서 Claude Code에 붙여 넣습니다 |
 | [`skills/`](skills/README.md) | 시안 채점 스킬 design-check. Part 7에서 설치하고 Part 11에서 우리 팀 기준으로 고칩니다 |
-| `checkpoint/01-home-detail` 브랜치 | 홈·상세 화면 구현 완료본 |
-| `checkpoint/02-supabase` 브랜치 | Supabase 연동과 작성·저장까지 완료본 |
+| `checkpoint/01-home-detail` 브랜치 | 홈·상세·작성 화면 구현 완료본 (예시 메모는 코드 안에) |
+| `checkpoint/02-supabase` 브랜치 | Supabase 읽기와 작성·저장까지 완료본 (테이블 SQL 포함) |
 | [`figma/starter-plugin/`](figma/starter-plugin/README.md) | 강사용: 실습 시작 시안을 만드는 Figma 플러그인 |
 
 실습은 바탕화면의 `memo` 폴더 하나에서 처음부터 끝까지 진행합니다. 바탕화면에 `memo` 폴더를 만들고, Claude 데스크톱 앱 Code 탭 입력창 아래 **선택...**에서 이 폴더를 고릅니다. 새 대화를 열 때마다 폴더가 `memo`인지 확인합니다. 진도가 늦어지면 체크포인트 브랜치를 받아 그 지점부터 이어 갑니다.
@@ -58,7 +58,7 @@ npm run dev
 
 이어서 할 때는 Code 탭에서 `memo-01` 폴더를 엽니다. 체크포인트에는 `.claude`(권한 규칙, 채점 스킬)가 들어 있어 따로 옮길 것이 없습니다.
 
-`checkpoint/02-supabase`도 같은 방법으로 `memo-02`로 받습니다. 이 체크포인트는 `.env.local`에 내 Supabase 프로젝트 URL과 공개 키를 직접 넣어야 동작합니다.
+`checkpoint/02-supabase`도 같은 방법으로 `memo-02`로 받습니다. 이 체크포인트는 `.env.example`을 `.env.local`로 복사해 내 Supabase 프로젝트 URL과 공개 키를 직접 넣어야 동작합니다. P9-2로 만든 테이블과 칸이 다르면 Claude에게 "supabase 폴더의 SQL대로 memos 테이블을 다시 만들어줘"라고 합니다.
 
 ## 주의
 
