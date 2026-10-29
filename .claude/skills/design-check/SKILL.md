@@ -1,8 +1,8 @@
 ---
 name: design-check
-description: Figma 프레임 링크를 받아 AI가 그대로 구현할 수 있는 시안인지 레이어 이름, 오토레이아웃, 변수와 스타일, 컴포넌트 네 항목으로 20점 만점 채점하고 고칠 곳을 알려 준다.
+description: Figma 프레임 링크를 받아 AI가 그대로 구현할 수 있는 시안인지 레이어 이름, 오토레이아웃, 변수와 스타일, 컴포넌트 네 항목으로 20점 만점 채점하고 고칠 곳을 알려 준다. 요청하면 걸린 곳에 Figma 주석도 단다.
 argument-hint: <Figma 프레임 링크>
-allowed-tools: mcp__claude_ai_Figma__create_session, mcp__claude_ai_Figma__get_design_context, mcp__claude_ai_Figma__get_metadata
+allowed-tools: mcp__claude_ai_Figma__create_session, mcp__claude_ai_Figma__get_design_context, mcp__claude_ai_Figma__get_metadata, mcp__claude_ai_Figma__use_figma
 ---
 
 # 디자인 체크
@@ -82,8 +82,20 @@ Figma 커넥터가 세션을 요구하면 `create_session`부터 부른다. 그�
 
 **확인 못 함**: 받은 정보로 판단하지 못한 것 (없으면 뺀다)
 
+## 6. Figma에 주석 남기기 (요청할 때만)
+
+주석으로 남겨 달라고 하면 5단계 결과를 보여 준 뒤 `use_figma`로 Figma에 주석을 단다. 레이어, 색, 크기 같은 디자인은 바꾸지 않는다. `use_figma`를 쓰기 전에 Figma 공식 스킬(figma-use)을 읽는다.
+
+- 분류는 `design-check` 하나를 쓴다. 파일에 없으면 빨강으로 만든다(`figma.annotations.addAnnotationCategoryAsync({ label: "design-check", color: "red" })`).
+- 깎인 줄마다 걸린 레이어에 주석을 단다. 첫 줄은 `**B −2 · 누르는 곳 44px**`처럼 항목, 점수, 걸린 기준이고, 둘째 줄부터 무엇이 문제인지와 Figma에서 고치는 법을 한두 문장으로 쓴다(`labelMarkdown`). 우리 팀 기준에 걸린 줄은 첫 줄 끝에 `[팀 기준]`을 붙인다.
+- 채점한 프레임에도 요약 주석을 하나 단다. 합계, 항목별 점수, 먼저 고칠 것 한 줄이다.
+- 다시 달 때는 그 프레임 안의 `design-check` 주석만 지우고 새로 단다. `node.annotations`는 통째로 바뀌므로, 다른 분류나 다른 사람이 단 주석은 남긴 채 더한다.
+- 인스턴스 안쪽 레이어에 달리지 않으면 가장 가까운 바깥 레이어에 달고, 내용에 원래 레이어 이름을 적는다.
+- 끝나면 주석을 단 레이어 수를 알려 준다.
+
 ## 문제가 생기면
 
 - 링크에서 `fileKey`나 `nodeId`를 찾지 못하면: 프레임을 선택한 채 복사한 링크를 달라고 한다
 - 도구가 오류를 내면: 오류를 그대로 알리고, 이 파일을 열 수 있는 계정으로 Figma 커넥터가 연결됐는지 확인하게 한다
 - 프레임이 아니라 컴포넌트 링크면: 그 사실을 알리고 그 컴포넌트가 쓰인 프레임 링크를 달라고 한다
+- 주석을 달지 못하면(보기 권한만 있는 파일 등): 그 사실을 알리고, 채점 결과는 대화에 그대로 있다고 말한다
