@@ -20,7 +20,7 @@
 | `checkpoint/02-supabase` 브랜치 | Supabase 읽기와 작성·저장까지 완료본 (테이블 SQL 포함) |
 | [`figma/starter-plugin/`](figma/starter-plugin/README.md) | 강사용: 실습 시작 시안을 만드는 Figma 플러그인 |
 
-실습은 바탕화면의 `memo` 폴더 하나에서 처음부터 끝까지 진행합니다. 바탕화면에 `memo` 폴더를 만들고, Claude 데스크톱 앱 Code 탭 입력창 아래 **선택...**에서 이 폴더를 고릅니다. 새 대화를 열 때마다 폴더가 `memo`인지 확인합니다. 진도가 늦어지면 체크포인트 브랜치를 받아 그 지점부터 이어 갑니다.
+실습은 바탕화면(Mac은 데스크탑)의 `memo` 폴더 하나에서 처음부터 끝까지 진행합니다. 바탕화면에 `memo` 폴더를 만들고, Claude 데스크톱 앱 Code 탭 입력창 아래 **선택...**에서 이 폴더를 고릅니다. 새 대화를 열 때마다 폴더가 `memo`인지 확인합니다. 진도가 늦어지면 체크포인트 브랜치를 받아 그 지점부터 이어 갑니다.
 
 ## 준비할 계정
 
@@ -30,35 +30,42 @@
 - [Vercel](https://vercel.com/signup) (GitHub 계정으로 가입하면 빠름)
 - [Supabase](https://supabase.com/dashboard/sign-up) (GitHub 계정으로 가입하면 빠름)
 
-## 설치할 프로그램 (Windows)
+## 설치할 프로그램
 
-| 프로그램 | 받는 곳 | 설치·확인 |
+강의장 Windows PC와 직접 가져온 Mac 모두 같은 프로그램을 씁니다. 명령은 Windows는 PowerShell, Mac은 터미널(Spotlight에서 "터미널")에 붙여 넣습니다.
+
+| 프로그램 | Windows (PowerShell) | Mac (터미널) |
 |---|---|---|
-| Claude 데스크톱 앱 (Code 탭) | [claude.com/download](https://claude.com/download) | 설치 후 개인 계정으로 로그인 |
-| Figma 데스크톱 앱 | [figma.com/downloads](https://www.figma.com/downloads/) | 브라우저 figma.com으로도 가능 |
-| Node.js LTS | [nodejs.org](https://nodejs.org/en/download) | `node -v` (v20 이상) |
-| Bun | [bun.sh](https://bun.sh) | PowerShell: `irm bun.sh/install.ps1 \| iex`, 확인 `bun -v` |
-| Git for Windows | [git-scm.com](https://git-scm.com/downloads/win) | `git --version` (Code 탭에 필요) |
-| GitHub CLI | [cli.github.com](https://cli.github.com) | `winget install --id GitHub.cli`, `gh auth login`, 확인 `gh auth status` |
-| VS Code (선택) | [code.visualstudio.com](https://code.visualstudio.com/download) | 코드를 직접 열어 볼 때 |
+| Claude 데스크톱 앱 (Code 탭) | [claude.com/download](https://claude.com/download)에서 설치 후 개인 계정으로 로그인 | 같음 (Mac용) |
+| Figma 데스크톱 앱 | [figma.com/downloads](https://www.figma.com/downloads/) (브라우저 figma.com으로도 가능) | 같음 (Mac용) |
+| Node.js LTS | [nodejs.org](https://nodejs.org/en/download)에서 설치 파일, 확인 `node -v` (v20 이상) | 같음 (macOS 설치 파일) |
+| Bun | `irm bun.sh/install.ps1 \| iex`, 확인 `bun -v` | `curl -fsSL https://bun.sh/install \| bash`, 확인 `bun -v` |
+| Git (Code 탭에 필요) | [Git for Windows](https://git-scm.com/downloads/win) 설치 (기본값 그대로) | `git --version`을 치고 개발자 도구 설치 창이 뜨면 설치 |
+| GitHub CLI | `winget install --id GitHub.cli` (안 되면 [cli.github.com](https://cli.github.com)) | [릴리스 페이지](https://github.com/cli/cli/releases/latest)에서 `macOS_universal.pkg` |
+| VS Code (선택) | [code.visualstudio.com](https://code.visualstudio.com/download) | 같음 (Mac용) |
 
-설치 뒤에는 PowerShell을 완전히 닫았다가 다시 열어야 새 명령이 잡힙니다.
+설치 뒤에는 PowerShell(Mac은 터미널)을 완전히 닫았다가 다시 열어야 새 명령이 잡힙니다. GitHub 로그인은 `gh auth login`, 확인은 `gh auth status`입니다.
+
+바탕화면이 OneDrive(Windows)나 iCloud(Mac)로 동기화되거나 사용자 이름이 한글이면, `C:\work\memo`나 `~/work/memo`처럼 동기화되지 않는 영문 경로에 `memo` 폴더를 만듭니다.
 
 ## 체크포인트 받기
 
-PowerShell에서 바탕화면에 받습니다. 내 작업 폴더(`memo`)와 겹치지 않게 이름을 `memo-01`로 합니다.
+PowerShell(Windows)이나 터미널(Mac)에서 바탕화면에 받습니다. 아래 명령은 두 곳에서 그대로 됩니다. 내 작업 폴더(`memo`)와 겹치지 않게 이름을 `memo-01`로 합니다.
 
-```powershell
-cd ~\Desktop
-git clone -b checkpoint/01-home-detail https://github.com/devbrother2024/claude-code-designer-memo.git memo-01
+```
+cd ~/Desktop
+git clone https://github.com/devbrother2024/claude-code-designer-memo.git memo-01
 cd memo-01
+git switch checkpoint/01-home-detail
 npm install
 npm run dev
 ```
 
+Windows PowerShell에서 `npm.ps1 파일을 로드할 수 없습니다`가 나오면 `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`를 한 번 실행하고 다시 합니다.
+
 이어서 할 때는 Code 탭에서 `memo-01` 폴더를 엽니다. 체크포인트에는 `.claude`(권한 규칙, 채점 스킬)가 들어 있어 따로 옮길 것이 없습니다.
 
-`checkpoint/02-supabase`도 같은 방법으로 `memo-02`로 받습니다. 이 체크포인트는 `.env.example`을 `.env.local`로 복사해 내 Supabase 프로젝트 URL과 공개 키를 직접 넣어야 동작합니다. P9-2로 만든 테이블과 칸이 다르면 Claude에게 "supabase 폴더의 SQL대로 memos 테이블을 다시 만들어줘"라고 합니다.
+`checkpoint/02-supabase`도 같은 방법으로 `memo-02`로 받습니다(`git switch checkpoint/02-supabase`). 이 체크포인트는 `cp .env.example .env.local`로 복사한 뒤 내 Supabase 프로젝트 URL과 공개 키를 직접 넣어야 동작합니다. Mac은 Supabase Connect 창의 두 줄을 복사한 뒤 `pbpaste > .env.local`로 넣어도 됩니다. P9-2로 만든 테이블과 칸이 다르면 Claude에게 "supabase 폴더의 SQL대로 memos 테이블을 다시 만들어줘"라고 합니다.
 
 ## 주의
 
