@@ -32,25 +32,25 @@
 
 ## 설치할 프로그램
 
-강의장 Windows PC와 직접 가져온 Mac 모두 같은 프로그램을 씁니다. Windows는 PowerShell, Mac은 터미널(Spotlight에서 "터미널")에 명령을 붙여 넣습니다.
+강의장 Windows PC와 직접 가져온 Mac 모두 같은 프로그램을 씁니다. 프로그램마다 공식 사이트가 권하는 방법으로 설치합니다. 명령은 Windows는 PowerShell, Mac은 터미널(Spotlight에서 "터미널")에 붙여 넣습니다.
 
-**Mac은 Homebrew로 설치합니다.** Homebrew가 없으면 먼저 설치합니다([brew.sh](https://brew.sh/ko/)). 설치 중 Mac 암호를 묻고(입력해도 화면에 보이지 않음), 끝나면 화면 아래 **Next steps**의 명령을 그대로 실행한 뒤 `brew --version`으로 확인합니다. Git은 Homebrew를 설치할 때 함께 들어옵니다.
+| 프로그램 | Windows | Mac |
+|---|---|---|
+| Claude 데스크톱 앱 (Code 탭) | [claude.com/download](https://claude.com/download)에서 설치 후 개인 계정으로 로그인 | 같음 (Mac용 다운로드) |
+| Figma 데스크톱 앱 | [figma.com/downloads](https://www.figma.com/downloads/) (브라우저 figma.com으로도 가능) | 같음 (Mac용 다운로드) |
+| Node.js LTS | [nodejs.org](https://nodejs.org/en/download)에서 설치 파일, 확인 `node -v` (v20 이상) | 같음 (macOS 설치 파일) |
+| Bun | `irm bun.sh/install.ps1 \| iex`, 확인 `bun -v` | `curl -fsSL https://bun.com/install \| bash`, 확인 `bun -v` |
+| Git (Code 탭에 필요) | [Git for Windows](https://git-scm.com/downloads/win) 설치 (기본값 그대로) | `brew install git` |
+| GitHub CLI | `winget install --id GitHub.cli` (안 되면 [cli.github.com](https://cli.github.com)) | `brew install gh` |
+| VS Code (선택) | [code.visualstudio.com](https://code.visualstudio.com/download) | 같음 (Mac용 다운로드) |
+
+**Mac의 Git과 GitHub CLI는 Homebrew로 설치합니다**(git-scm.com과 cli.github.com이 Mac에 권하는 방법). Homebrew가 없으면 먼저 설치합니다([brew.sh](https://brew.sh/ko/)). 설치 중 Mac 암호를 묻고(입력해도 화면에 보이지 않음), 끝나면 화면 아래 **Next steps**의 명령을 그대로 실행한 뒤 `brew --version`으로 확인합니다.
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-| 프로그램 | Windows (PowerShell) | Mac (터미널, Homebrew) |
-|---|---|---|
-| Claude 데스크톱 앱 (Code 탭) | [claude.com/download](https://claude.com/download)에서 설치 후 개인 계정으로 로그인 | `brew install --cask claude` |
-| Figma 데스크톱 앱 | [figma.com/downloads](https://www.figma.com/downloads/) (브라우저 figma.com으로도 가능) | `brew install --cask figma` |
-| Node.js | [nodejs.org](https://nodejs.org/en/download)에서 LTS 설치 파일, 확인 `node -v` (v20 이상) | `brew install node` |
-| Bun | `irm bun.sh/install.ps1 \| iex`, 확인 `bun -v` | `brew install bun` |
-| Git (Code 탭에 필요) | [Git for Windows](https://git-scm.com/downloads/win) 설치 (기본값 그대로) | Homebrew 설치 때 함께 들어옴, 확인 `git --version` |
-| GitHub CLI | `winget install --id GitHub.cli` (안 되면 [cli.github.com](https://cli.github.com)) | `brew install gh` |
-| VS Code (선택) | [code.visualstudio.com](https://code.visualstudio.com/download) | `brew install --cask visual-studio-code` |
-
-Mac은 도구를 `brew install node bun gh`, 앱을 `brew install --cask claude figma`로 한 번에 설치해도 됩니다. 회사 Mac이라 관리자 권한이 없어 Homebrew 설치가 막히면 각 사이트의 Mac용 설치 파일을 씁니다.
+회사 Mac이라 관리자 권한이 없어 Homebrew 설치가 막히면 Git은 `git --version`(개발자 도구 설치 창), GitHub CLI는 [릴리스 페이지](https://github.com/cli/cli/releases/latest)의 `macOS_universal.pkg`를 씁니다.
 
 설치 뒤에는 PowerShell(Mac은 터미널)을 완전히 닫았다가 다시 열어야 새 명령이 잡힙니다. GitHub 로그인은 `gh auth login`, 확인은 `gh auth status`입니다.
 
