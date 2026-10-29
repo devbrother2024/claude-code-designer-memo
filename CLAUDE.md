@@ -31,6 +31,6 @@
 - 위 디자인 토큰에 없는 색·간격·모서리 값은 쓰지 않는다. 새 값이 필요하면 먼저 물어본다.
 - 같은 모양의 UI는 기존 컴포넌트를 재사용한다.
 - 한글은 Noto Sans KR로 쓰고, 단어 중간에서 줄을 바꾸지 않는다.
-- 코드에서는 디자인 토큰 이름만 쓴다. 토큰은 `src/app/globals.css`에 같은 이름으로 정의돼 있고, hex·px 값은 쓰지 않는다. (예: `bg-surface-card`, `p-space-16`, `rounded-md`, `text-heading-xl`)
+- 코드에서는 디자인 토큰 이름만 쓰고, 아이콘 색은 글자색을 따른다. 토큰은 `src/app/globals.css`에 같은 이름으로 정의돼 있고, hex·px 값은 쓰지 않는다. (예: `bg-surface-card`, `p-space-16`, `rounded-md`, `text-heading-xl`)
 
 @AGENTS.md

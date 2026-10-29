@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Icon } from "./svg-icon";
 
 type ButtonPrimaryProps = {
   label: string;
@@ -16,7 +16,7 @@ const CLASS_NAME =
 export function ButtonPrimary({ label, icon = false, href, onClick, disabled }: ButtonPrimaryProps) {
   const content = (
     <>
-      {icon && <Image src="/icons/plus.svg" alt="" width={20} height={20} />}
+      {icon && <Icon src="/icons/plus.svg" className="size-5" />}
       {label}
     </>
   );

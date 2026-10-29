@@ -11,7 +11,7 @@ export function MemoDetail({ memo }: { memo: Memo }) {
       <nav className="flex items-center justify-between">
         <IconButton icon="/icons/chevron-left.svg" label="뒤로가기" href="/" />
         <div className="flex">
-          {memo.pinned && <IconButton icon="/icons/pin-24.svg" label="고정됨" />}
+          {memo.pinned && <IconButton icon="/icons/pin-24.svg" label="고정됨" className="text-primary" />}
           <IconButton icon="/icons/share.svg" label="공유" />
           <IconButton icon="/icons/more.svg" label="더보기" />
         </div>
