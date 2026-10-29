@@ -12,7 +12,7 @@ Supabase 연결이 잘 됐는지 확인하고, 내 프로젝트 목록을 보여
 
 ## P9-2 | 계획 모드로 한 번에 옮기기
 
-**사전 단계(키 넣기)**: Supabase 화면 위쪽 **Connect** → Framework → Next.js(App Router) → `.env.local` 탭의 두 줄(`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`)을 복사해 memo 폴더(package.json이 있는 곳)에 `.env.local` 파일로 저장한다. 메모장은 파일 형식을 "모든 파일"로 바꿔야 `.txt`가 붙지 않는다. Part 2에서 `.env` 같은 키 파일은 Claude가 못 읽게 막아 두었으니 키는 직접 넣고, 값을 대화에 붙이지 않는다. `sb_secret_`로 시작하는 키는 쓰지 않는다.
+**사전 단계(키 넣기)**: Supabase 화면 위쪽 **Connect** → Framework → Next.js(App Router) → `.env.local` 탭의 두 줄(`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`)을 복사해 memo 폴더(package.json이 있는 곳)에 `.env.local` 파일로 저장한다. Windows 메모장은 파일 형식을 "모든 파일"로 바꿔야 `.txt`가 붙지 않는다. Mac은 두 줄을 복사한 뒤 터미널에서 `cd ~/Desktop/memo`, `pbpaste > .env.local`로 만든다(텍스트 편집기는 서식 있는 문서로 저장될 수 있어 권하지 않는다). Part 2에서 `.env` 같은 키 파일은 Claude가 못 읽게 막아 두었으니 키는 직접 넣고, 값을 대화에 붙이지 않는다. `sb_secret_`로 시작하는 키는 쓰지 않는다.
 
 입력창 아래 모드를 **계획**으로 바꾸고 입력한다. Claude가 계획을 보여 주면 읽고 승인한다.
 

@@ -19,4 +19,4 @@ design-check 스킬로 내 상세 화면을 다시 채점해줘. 우리 팀 기�
 
 ## P11-2 | 강의장 PC 정리
 
-프롬프트 없이 화면의 체크리스트를 함께 진행한다: Claude 앱 로그아웃, 브라우저에서 Figma·GitHub·Vercel·Supabase 로그아웃, Claude 사용자 지정 → 커넥터에서 Figma·Supabase 연결 끊기, PowerShell에서 `gh auth logout`(GitHub CLI 로그인 지우기). 교육용 Figma 계정은 다음 회차에 다른 분이 쓰므로 커넥터 연결을 꼭 끊는다.
+프롬프트 없이 화면의 체크리스트를 함께 진행한다: Claude 앱 로그아웃, 브라우저에서 Figma·GitHub·Vercel·Supabase 로그아웃, Claude 사용자 지정 → 커넥터에서 Figma·Supabase 연결 끊기, PowerShell(Mac은 터미널)에서 `gh auth logout`(GitHub CLI 로그인 지우기, 내 노트북이면 생략). 교육용 Figma 계정은 다음 회차에 다른 분이 쓰므로 커넥터 연결을 꼭 끊는다.
