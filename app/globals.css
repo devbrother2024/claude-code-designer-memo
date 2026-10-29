@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 /*
- * 디자인 토큰 (Figma memo 변수). 이름은 Figma 변수 이름에서 "/"만 "-"로 바꾼 것이다.
- * 코드에서는 이 이름의 유틸리티만 쓰고 hex·px 값을 직접 쓰지 않는다. 값은 이 파일에서만 정의한다.
- * Tailwind 기본 색·크기·모서리는 비워서 토큰에 없는 값은 컴파일되지 않게 한다.
+ * 디자인 토큰 (CLAUDE.md의 Figma memo와 같은 이름)
+ * 변수 이름의 "/"는 "-"로 쓴다. 예) surface/page → bg-surface-page, space/16 → gap-space-16,
+ * radius/md → rounded-md, heading/xl → text-heading-xl
+ * Light 값은 아래 @theme, Dark 값은 맨 아래 prefers-color-scheme 블록에서 덮어쓴다.
  */
 @theme static {
+  /* 기본 팔레트·모서리·글자 크기를 비워 토큰에 없는 값은 클래스가 만들어지지 않게 한다 */
   --color-*: initial;
-  --text-*: initial;
   --radius-*: initial;
+  --text-*: initial;
 
-  /* 색 (Colors) : Light 값. Dark 값은 아래 prefers-color-scheme 블록에서 덮어쓴다. */
+  /* 색 (Colors, Light) */
   --color-primary: #3182f6;
   --color-surface-page: #f2f4f6;
   --color-surface-card: #ffffff;
@@ -28,7 +30,7 @@
   --color-label-pink: #e5397a;
   --color-label-pink-soft: #ffeaf1;
 
-  /* 간격 (space/N) : p-space-16, gap-space-8 처럼 쓴다. */
+  /* 간격 (Spacing, GAP): gap-space-16, p-space-24 처럼 쓴다 */
   --spacing-space-4: 4px;
   --spacing-space-8: 8px;
   --spacing-space-12: 12px;
@@ -39,14 +41,17 @@
   --spacing-space-48: 48px;
   --spacing-space-64: 64px;
 
-  /* 모서리 (radius/*) : rounded-sm, rounded-full 처럼 쓴다. */
+  /* 모서리 (Spacing, CORNER_RADIUS) */
   --radius-sm: 12px;
   --radius-md: 16px;
   --radius-lg: 20px;
   --radius-xl: 24px;
   --radius-full: 999px;
 
-  /* 텍스트 스타일 : text-heading-xl 한 개로 크기·행간·자간·굵기가 함께 적용된다. */
+  /* 글꼴: layout.tsx의 next/font가 --font-noto-sans-kr를 주입한다 */
+  --font-sans: var(--font-noto-sans-kr), "Noto Sans KR", sans-serif;
+
+  /* 텍스트 스타일 (Noto Sans KR): 크기 / 행간 / 자간 / 굵기가 한 클래스로 적용된다 */
   --text-heading-xl: 28px;
   --text-heading-xl--line-height: 38px;
   --text-heading-xl--letter-spacing: -0.8px;
@@ -89,12 +94,58 @@
   --text-caption-sm--font-weight: 500;
 }
 
-/* Noto Sans KR : layout.tsx의 next/font가 --font-noto-sans-kr 변수를 만든다. */
-@theme inline {
-  --font-sans: var(--font-noto-sans-kr), sans-serif;
+body {
+  background: var(--color-surface-page);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  /* 한글은 단어 중간에서 줄을 바꾸지 않는다 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
-/* 색 (Colors) : Dark 값 */
+/*
+ * 메모 본문 서식: 작성 화면의 편집기와 상세 화면이 같은 규칙으로 그린다.
+ * h2는 제목(title/lg), h3는 소제목(title/md), 굵게는 b/strong, 목록은 ul/li
+ */
+.memo-richtext h2 {
+  @apply text-title-lg text-text-primary;
+}
+.memo-richtext h3 {
+  @apply text-title-md text-text-primary;
+}
+.memo-richtext p,
+.memo-richtext div,
+.memo-richtext li {
+  @apply text-body-md text-text-secondary;
+}
+.memo-richtext b,
+.memo-richtext strong {
+  @apply font-bold text-text-primary;
+}
+.memo-richtext ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-space-4);
+}
+.memo-richtext li {
+  position: relative;
+  padding-inline-start: calc(var(--spacing-space-8) + 0.375em);
+}
+.memo-richtext li::before {
+  content: "•";
+  position: absolute;
+  inset-inline-start: 0;
+}
+
+/*
+ * 편집기 안의 블록 간격(space/8). 편집 중 브라우저가 블록을 div 안에 중첩해도
+ * 맞닿은 형제마다 같은 간격이 들어가도록 형제 선택자로 둔다.
+ */
+.memo-editor :is(h2, h3, ul, p, div) + :is(h2, h3, ul, p, div) {
+  margin-top: var(--spacing-space-8);
+}
+
+/* 색 (Colors, Dark) */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-primary: #4d94ff;
@@ -114,12 +165,4 @@
     --color-label-pink: #ff6fa2;
     --color-label-pink-soft: #3b1d2a;
   }
-}
-
-body {
-  background: var(--color-surface-page);
-  color: var(--color-text-primary);
-  /* 한글은 단어 중간에서 줄을 바꾸지 않는다. */
-  word-break: keep-all;
-  overflow-wrap: break-word;
 }
