@@ -46,7 +46,7 @@ https://github.com/devbrother2024/claude-code-designer-memo 저장소의 `skills
 ```
 design-check 스킬로 아래 두 프레임을 각각 채점해서 점수와 깎인 이유를 보여줘.
 - 홈: {Mobile/Home 프레임 링크}
-- 상세: {Mobile/Detail 프레임 링크, 직접 안 만들었으면 완성 예시/Detail}
+- 상세: {Mobile/Detail 프레임 링크}
 ```
 
 ## P7-5 | 깎인 곳 고치고 다시 채점
