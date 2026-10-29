@@ -1,6 +1,6 @@
 # Claude Code로 시작하는 디자이너를 위한 바이브코딩
 
-> 이 브랜치는 **체크포인트 02: Supabase 연동과 작성 화면 완료본**입니다. Part 9의 P9-4(저장)까지 끝난 상태입니다. `.env.example`을 `.env.local`로 복사해 내 Supabase 값을 넣으면 홈·상세가 내 memos 테이블을 읽고, 작성 화면이 제목·분류·색·서식 있는 본문을 저장합니다. P9-2로 만든 memos 테이블과 칸이 다르면 Claude에게 "supabase 폴더의 SQL대로 memos 테이블을 다시 만들어줘"라고 합니다(Supabase SQL Editor에서 `supabase/migrations/`의 SQL을 직접 실행해도 됩니다).
+> 이 브랜치는 **체크포인트 02: Supabase 연동과 작성 화면 완료본**입니다. Part 9의 P9-2(계획 모드로 Supabase에 옮기기)까지 끝난 상태입니다. `.env.example`을 `.env.local`로 복사해 내 Supabase 값을 넣으면 홈·상세가 내 memos 테이블을 읽고, 작성 화면이 제목·분류·색·서식 있는 본문을 저장합니다. P9-2로 만든 memos 테이블과 칸이 다르면 Claude에게 "supabase 폴더의 SQL대로 memos 테이블을 다시 만들어줘"라고 합니다(Supabase SQL Editor에서 `supabase/migrations/`의 SQL을 직접 실행해도 됩니다).
 
 디자이너가 Claude Code와 Figma MCP로 메모 앱 시안을 만들고, 코드로 구현하고, 배포까지 하는 1일 핸즈온 실습 저장소입니다.
 
