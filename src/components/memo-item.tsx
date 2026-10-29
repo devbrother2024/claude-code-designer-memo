@@ -1,12 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Icon } from "./svg-icon";
 import type { Memo, MemoLabel } from "@/lib/memos";
 
 const LABEL_STYLE: Record<MemoLabel, { tile: string; icon: string }> = {
-  blue: { tile: "bg-label-blue-soft", icon: "/icons/note-blue.svg" },
-  green: { tile: "bg-label-green-soft", icon: "/icons/note-green.svg" },
-  orange: { tile: "bg-label-orange-soft", icon: "/icons/note-orange.svg" },
-  pink: { tile: "bg-label-pink-soft", icon: "/icons/note-pink.svg" },
+  blue: { tile: "bg-label-blue-soft text-label-blue", icon: "/icons/note-blue.svg" },
+  green: { tile: "bg-label-green-soft text-label-green", icon: "/icons/note-green.svg" },
+  orange: { tile: "bg-label-orange-soft text-label-orange", icon: "/icons/note-orange.svg" },
+  pink: { tile: "bg-label-pink-soft text-label-pink", icon: "/icons/note-pink.svg" },
 };
 
 export function MemoItem({ memo }: { memo: Memo }) {
@@ -19,7 +19,7 @@ export function MemoItem({ memo }: { memo: Memo }) {
       <span
         className={`flex size-11 shrink-0 items-center justify-center rounded-sm ${tile}`}
       >
-        <Image src={icon} alt="" width={22} height={22} />
+        <Icon src={icon} className="size-5.5" />
       </span>
       <span className="flex min-w-0 flex-1 flex-col gap-space-4">
         <span className="text-title-md text-text-primary">{memo.title}</span>
