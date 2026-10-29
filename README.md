@@ -54,8 +54,6 @@
 
 설치 뒤에는 PowerShell(Mac은 터미널)을 완전히 닫았다가 다시 열어야 새 명령이 잡힙니다. GitHub 로그인은 `gh auth login`, 확인은 `gh auth status`입니다.
 
-바탕화면이 OneDrive(Windows)나 iCloud(Mac)로 동기화되거나 사용자 이름이 한글이면, `C:\work\memo`나 `~/work/memo`처럼 동기화되지 않는 영문 경로에 `memo` 폴더를 만듭니다.
-
 ## 체크포인트 받기
 
 PowerShell(Windows)이나 터미널(Mac)에서 바탕화면에 받습니다. 아래 명령은 두 곳에서 그대로 됩니다. 내 작업 폴더(`memo`)와 겹치지 않게 이름을 `memo-01`로 합니다.
